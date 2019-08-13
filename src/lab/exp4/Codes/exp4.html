@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Hopfield model for pattern storage task</title>
+    <link type = "text/css" href = "exp4.css" rel = "stylesheet">
+    <script type = "text/javascript" src = "exp4.js"></script>
+</head>
+
+<body>
+	<div class = "row">
+		<div class = "column-0" id = "title">
+			HINT -->> CLICK ON '011' AND '110' TO BE REPRESENTED AS STABLE STATES
+		</div>
+	</div>
+	
+	<div class = "row">
+		<div class = "column-1">
+			<div class = "boxed" id = "e1">
+				<button>0 0 0</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class = "boxed" id = "e2">
+				<button>0 0 1</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class = "boxed" id = "e3">
+				<button>0 1 0</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class = "boxed" id = "e4">
+				<button>1 0 0</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class = "boxed" id = "e5">
+				<button>0 1 1</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class = "boxed" id = "e6">
+				<button>1 0 1</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class = "boxed" id = "e7">
+				<button>1 1 0</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class = "boxed" id = "e8">
+				<button>1 1 1</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class = "row">
+		<div class = "column-2">
+			<p id = "p1">CLICK OVER THE STATES TO CHOOSE THEM AS MINIMUM ENERGY STATES</p>
+			<p id = "p2">YOU CAN CHOOSE AT MOST TWO STATES AS MINIMUM</p>
+			<p id = "p3">MAKE SURE THEY ARE SEPARATED BY MORE THAN ONE HAMMING DISTANCE</p>
+			<p><button id = "submit">SUBMIT</button></p>
+		</div>
+	</div>
+	
+	<div class = "row" id = "image">
+		<img src = "3unit.png" alt = "3 node graph" class = "image">
+	</div>
+
+	<p></p>
+
+	<div class = "row" id = "explain">
+		<div class = "column-5">
+			<p><h2>Hamming Distance</h2></p>
+			<p>Hamming distance is often calulated with two text or numeric input of same size. The number of place in which one value is differing from other is known as hamming distance or in better words "How many minimum places need to change in one input to get second input.".</p>
+
+			<p>The most common example of hamming distance is that it is used in computer networking. The number of bits get corrupted while transmitting via a network is calculated by hamming distance.</p> 
+
+			<p><h3>How it is calculated?</h3></p> 
+			<p>1. We traverse from the first to last bit/word/number of both the inputs. Initially, the hamming distance is set to zero.</p>
+			<p>2. We begin to traverse both the inputs from the beginning and check one by one the bit/word/number of both the inputs. While iteration we check whether the input bit/word/number of both the places are same or not.</p>
+			<p>3. If the bits/words/numbers are same, we go to the next bit/word/number of both the inputs.</p>
+			<p>4. If the bits/words/numbers are having different values then the hamming distance is increased by one.</p> 
+			<p> 5. The final hamming distance value is the answer.</p>
+
+			<p><h3>Example</h3></p>
+			<p><h4>1. a) America b) Amreica</h4></p> 
+			<p>Hamming Distance = 2 (2nd and 3rd position are different).</p> 
+			<p><h4>2. a) Field b) Feild</h4></p> 
+			<p>Hamming Distance = 2 (2nd and 3rd position are different).</p> 
+			<p><h4>3. a) 0110101101001 b) 0111101001101</h4></p> 
+			<p>Hamming Distance = 3 (4th,9th and 11th position are different).</p>
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "column-3" id = "column3">
+			<div class = "column-0">
+				<p> THE FOLLOWING ACTIVATION  DYNAMICS EQUATIONS MUST BE SATISFIED: </p>
+				<p><button id = "see-equations">SEE EQUATIONS</button></p>
+				<p id = "equation-1"> </p>
+				<p id = "equation-2"> </p>
+			</div>
+			<p>ADJUST THE WEIGHTS AND THRESHOLD FOR NEW STD</p>
+			<p>W12 = W21 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "w12">Value: <span id = "demo1" style = "text-align: right;"></span></p>
+			<p>W23 = W32 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "w23">Value: <span id = "demo2" style = "text-align: right;"></span></p>
+			<p>W31 = W13 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "w31">Value: <span id = "demo3" style = "text-align: right;"></span></p>
+			<p>Threshold 1 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "th1">Value: <span id = "demo4" style = "text-align: right;"></span></p>
+			<p>Threshold 2 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "th2">Value: <span id = "demo5" style = "text-align: right;"></span></p>
+			<p>Threshold 3 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "th3">Value: <span id = "demo6" style = "text-align: right;"></span></p>
+			<p><button id = "done">DONE</button></p>
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "column-4" id = "column4">
+			<h2> ENERGY DIAGRAM</h2>
+			<div class = "boxed">
+				<p id = "ne1"> 0 0 0 </p>
+				<p style = 'color: red;' id = "en1"> </p>
+			</div>
+			<div class = "boxed">
+				<p id = "ne2"> 0 0 1 </p>
+				<p style = 'color: red;' id = "en2"> </p>
+			</div>
+			<div class = "boxed">
+				<p id = "ne3"> 0 1 0 </p>
+				<p style = 'color: red;' id = "en3"> </p>
+			</div>
+			<div class = "boxed">
+				<p id = "ne4"> 1 0 0 </p>
+				<p style = 'color: red;' id = "en4"> </p>
+			</div>
+			<div class = "boxed">
+				<p id = "ne5"> 0 1 1 </p>
+				<p style = 'color: red;' id = "en5"> </p>
+			</div>
+			<div class = "boxed">
+				<p id = "ne6"> 1 0 1 </p>
+				<p style = 'color: red;' id = "en6"> </p>
+			</div>
+			<div class = "boxed">
+				<p id = "ne7"> 1 1 0 </p>
+				<p style = 'color: red;' id = "en7"> </p>
+			</div>
+			<div class = "boxed">
+				<p id = "ne8"> 1 1 1 </p>
+				<p style = 'color: red;' id = "en8"> </p>
+			</div>
+			<p><button id = "calculate-energy">CALCULATE ENERGY</button></p>
+			<p><button id = "final" style = 'visibility: hidden;'>SHOW THE FINAL MINIMUM ENERGY STATES</button></p>
+			<p id = "show-final"></p>
+			<p id = "show-final1"></p>
+			<p id = "show-final2"></p>
+		</div>
+	</div>
+
+
+</body>
+</html>
