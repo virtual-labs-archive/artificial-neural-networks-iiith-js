@@ -84,6 +84,7 @@ const units = [],
         "Neal'",
         "Dave'",
     ],
+    nameCount = nameList.length,
     weights = [];
 let decay = 0.1,
     beta = 0.1,
@@ -110,9 +111,9 @@ let gDel = 0.0,
 //  w = loadBytes('data/network.txt');
 // }
 function getWeights() {
-    for (let i = 0; i < 68; i++) {
+    for (let i = 0; i < nameCount; i++) {
         weights[i] = [];
-        for (let j = 0; j < 68; j++) {
+        for (let j = 0; j < nameCount; j++) {
             const a = wx[i * 69 + j];
             if (a === ".") {
                 weights[i][j] = 0.0;
@@ -128,7 +129,7 @@ function getWeights() {
 function placeUnits() {
     let r = 60,
         cx = 180,
-        i = 67,
+        i = nameCount - 1,
         j = 0,
         n = 0,
         angle;
@@ -302,7 +303,7 @@ class Unit {
         text(this.name, this.px, this.py + 20);
         smooth();
         if (this.highlight) {
-            for (let j = 0; j < 68; j++) {
+            for (let j = 0; j < nameCount; j++) {
                 if (weights[this.id][j] > 0) {
                     strokeWeight(1);
                     stroke(0, 255, 100, 255);
@@ -322,7 +323,7 @@ class Unit {
 
     net() {
         this.inhibition = this.excitation = 0.0;
-        for (let j = 0; j < 68; j++) {
+        for (let j = 0; j < nameCount; j++) {
             if (units[j].activation > 0) {
                 if (weights[this.id][j] > 0) {
                     this.q = weights[this.id][j] * units[j].activation;
@@ -392,7 +393,7 @@ class Unit {
 }
 function mouseReleased() {
     if (isRunning) {
-        for (let i = 0; i < 68; i++) {
+        for (let i = 0; i < nameCount; i++) {
             if (units[i].highlight) {
                 click = true;
                 break;
@@ -413,8 +414,8 @@ function keyReleased() {
 }
 
 function initReset() {
-    for (let i = 0; i < 68; i++) {
-        units[i].reset();
+    for (const unit of units) {
+        unit.reset();
     }
     cycle = 0;
     click = false;
@@ -436,7 +437,7 @@ function resetOriginalValues() {
 }
 function getNames() {
     // console.log('[')
-    for (let i = 0; i < 68; i++) {
+    for (let i = 0; i < nameCount; i++) {
         // console.log('"'+nameList[i]+'",');
         units[i] = new Unit(i, nameList[i], 20, 20);
     }
@@ -523,20 +524,20 @@ function draw() {
         }
     }
 
-    for (let i = 0; i < 68; i++) {
-        units[i].display();
+    for (const unit of units) {
+        unit.display();
     }
     if (isRunning) {
-        for (let i = 0; i < 68; i++) {
-            units[i].net();
+        for (const unit of units) {
+            unit.net();
         }
         // gDel=0.0;
-        for (let i = 0; i < 68; i++) {
-            units[i].update();
+        for (const unit of units) {
+            unit.update();
         }
         cycle++;
     }
-    for (let i = 0; i < 68; i++) {
-        units[i].userIn();
+    for (const unit of units) {
+        unit.userIn();
     }
 }
