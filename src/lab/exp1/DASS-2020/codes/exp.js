@@ -99,28 +99,29 @@ let decay = 0.1,
     click = false;
 
 // what's this?
-const wx = ".v.......................................ddddddddddddddd............ v.......................................................dddddddddddd ...vv......................................d..ddd.ddddd.......d..... ..v.v.....................................d..d...d.....dddddd...dddd ..vv.....................................d..d................d.d.... ......vv.................................dd.ddd.d.dd...d.d.......... .....v.v.......................................d.d..dd....d..dddd.dd .....vv....................................d..........d.d..dd....d.. .........vv..............................d.ddd...d..dddd.dd...d...d. ........v.v...............................d....dd.d.....d..ddd.d.d.. ........vv....................................d....d............d..d ............vv...........................d.....d.....dddd.d......d.d ...........v.v............................d...d.d.dd.......d..ddd... ...........vv..............................ddd...d..d....d..dd....d. ...............vvvvvvvvvvvvvvvvvvvvvvvvvvd.......................... ..............v.vvvvvvvvvvvvvvvvvvvvvvvvv.d......................... ..............vv.vvvvvvvvvvvvvvvvvvvvvvvv..d........................ ..............vvv.vvvvvvvvvvvvvvvvvvvvvvv...d....................... ..............vvvv.vvvvvvvvvvvvvvvvvvvvvv....d...................... ..............vvvvv.vvvvvvvvvvvvvvvvvvvvv.....d..................... ..............vvvvvv.vvvvvvvvvvvvvvvvvvvv......d.................... ..............vvvvvvv.vvvvvvvvvvvvvvvvvvv.......d................... ..............vvvvvvvv.vvvvvvvvvvvvvvvvvv........d.................. ..............vvvvvvvvv.vvvvvvvvvvvvvvvvv.........d................. ..............vvvvvvvvvv.vvvvvvvvvvvvvvvv..........d................ ..............vvvvvvvvvvv.vvvvvvvvvvvvvvv...........d............... ..............vvvvvvvvvvvv.vvvvvvvvvvvvvv............d.............. ..............vvvvvvvvvvvvv.vvvvvvvvvvvvv.............d............. ..............vvvvvvvvvvvvvv.vvvvvvvvvvvv..............d............ ..............vvvvvvvvvvvvvvv.vvvvvvvvvvv...............d........... ..............vvvvvvvvvvvvvvvv.vvvvvvvvvv................d.......... ..............vvvvvvvvvvvvvvvvv.vvvvvvvvv.................d......... ..............vvvvvvvvvvvvvvvvvv.vvvvvvvv..................d........ ..............vvvvvvvvvvvvvvvvvvv.vvvvvvv...................d....... ..............vvvvvvvvvvvvvvvvvvvv.vvvvvv....................d...... ..............vvvvvvvvvvvvvvvvvvvvv.vvvvv.....................d..... ..............vvvvvvvvvvvvvvvvvvvvvv.vvvv......................d.... ..............vvvvvvvvvvvvvvvvvvvvvvv.vvv.......................d... ..............vvvvvvvvvvvvvvvvvvvvvvvv.vv........................d.. ..............vvvvvvvvvvvvvvvvvvvvvvvvv.v.........................d. ..............vvvvvvvvvvvvvvvvvvvvvvvvvv...........................d u...uu..u..u..u...........................hhhhhhhhhhhhhhhhhhhhhhhhhh u..u.u...u..u..u.........................h.hhhhhhhhhhhhhhhhhhhhhhhhh u.u....uu....u..u........................hh.hhhhhhhhhhhhhhhhhhhhhhhh u...uu..u....u...u.......................hhh.hhhhhhhhhhhhhhhhhhhhhhh u..u.u..u....u....u......................hhhh.hhhhhhhhhhhhhhhhhhhhhh u.u..u....u.u......u.....................hhhhh.hhhhhhhhhhhhhhhhhhhhh u.u...u..u.u........u....................hhhhhh.hhhhhhhhhhhhhhhhhhhh u.u..u...u..u........u...................hhhhhhh.hhhhhhhhhhhhhhhhhhh u..u..u.u....u........u..................hhhhhhhh.hhhhhhhhhhhhhhhhhh u.u..u...u..u..........u.................hhhhhhhhh.hhhhhhhhhhhhhhhhh u.u..u....u.u...........u................hhhhhhhhhh.hhhhhhhhhhhhhhhh u.u...u.u....u...........u...............hhhhhhhhhhh.hhhhhhhhhhhhhhh u.u...u.u..u..............u..............hhhhhhhhhhhh.hhhhhhhhhhhhhh u.u....uu..u...............u.............hhhhhhhhhhhhh.hhhhhhhhhhhhh u..u.u..u..u................u............hhhhhhhhhhhhhh.hhhhhhhhhhhh .u.u...u.u.u.................u...........hhhhhhhhhhhhhhh.hhhhhhhhhhh .u.u.u..u....u................u..........hhhhhhhhhhhhhhhh.hhhhhhhhhh .u.u..u.u..u...................u.........hhhhhhhhhhhhhhhhh.hhhhhhhhh .u.u...u.u..u...................u........hhhhhhhhhhhhhhhhhh.hhhhhhhh .u.u...u.u...u...................u.......hhhhhhhhhhhhhhhhhhh.hhhhhhh .u..u.u..u...u....................u......hhhhhhhhhhhhhhhhhhhh.hhhhhh .uu...u.u...u......................u.....hhhhhhhhhhhhhhhhhhhhh.hhhhh .u..u.u..u..u.......................u....hhhhhhhhhhhhhhhhhhhhhh.hhhh .u.u..u...u.u........................u...hhhhhhhhhhhhhhhhhhhhhhh.hhh .u.u...u.u.u..........................u..hhhhhhhhhhhhhhhhhhhhhhhh.hh .u.u..u.u....u.........................u.hhhhhhhhhhhhhhhhhhhhhhhhh.h .u.u..u...uu............................uhhhhhhhhhhhhhhhhhhhhhhhhhh.",
-    maxSteps = 350,
+const maxSteps = 350,
     prev = [];
 
 let gDel = 0.0,
     maxGDel = 0.001,
     cycle = 0;
 // function preload() {
-//  nameList = loadStrings('data/names.txt');
-//  w = loadBytes('data/network.txt');
-// }
+    //  nameList = loadStrings('data/names.txt');
+    //  w = loadBytes('data/network.txt');
+    // }
 function getWeights() {
-    for (let i = 0; i < nameCount; i++) {
-        weights[i] = [];
-        for (let j = 0; j < nameCount; j++) {
-            const a = wx[i * 69 + j];
+    const wx = ".v.......................................ddddddddddddddd............ v.......................................................dddddddddddd ...vv......................................d..ddd.ddddd.......d..... ..v.v.....................................d..d...d.....dddddd...dddd ..vv.....................................d..d................d.d.... ......vv.................................dd.ddd.d.dd...d.d.......... .....v.v.......................................d.d..dd....d..dddd.dd .....vv....................................d..........d.d..dd....d.. .........vv..............................d.ddd...d..dddd.dd...d...d. ........v.v...............................d....dd.d.....d..ddd.d.d.. ........vv....................................d....d............d..d ............vv...........................d.....d.....dddd.d......d.d ...........v.v............................d...d.d.dd.......d..ddd... ...........vv..............................ddd...d..d....d..dd....d. ...............vvvvvvvvvvvvvvvvvvvvvvvvvvd.......................... ..............v.vvvvvvvvvvvvvvvvvvvvvvvvv.d......................... ..............vv.vvvvvvvvvvvvvvvvvvvvvvvv..d........................ ..............vvv.vvvvvvvvvvvvvvvvvvvvvvv...d....................... ..............vvvv.vvvvvvvvvvvvvvvvvvvvvv....d...................... ..............vvvvv.vvvvvvvvvvvvvvvvvvvvv.....d..................... ..............vvvvvv.vvvvvvvvvvvvvvvvvvvv......d.................... ..............vvvvvvv.vvvvvvvvvvvvvvvvvvv.......d................... ..............vvvvvvvv.vvvvvvvvvvvvvvvvvv........d.................. ..............vvvvvvvvv.vvvvvvvvvvvvvvvvv.........d................. ..............vvvvvvvvvv.vvvvvvvvvvvvvvvv..........d................ ..............vvvvvvvvvvv.vvvvvvvvvvvvvvv...........d............... ..............vvvvvvvvvvvv.vvvvvvvvvvvvvv............d.............. ..............vvvvvvvvvvvvv.vvvvvvvvvvvvv.............d............. ..............vvvvvvvvvvvvvv.vvvvvvvvvvvv..............d............ ..............vvvvvvvvvvvvvvv.vvvvvvvvvvv...............d........... ..............vvvvvvvvvvvvvvvv.vvvvvvvvvv................d.......... ..............vvvvvvvvvvvvvvvvv.vvvvvvvvv.................d......... ..............vvvvvvvvvvvvvvvvvv.vvvvvvvv..................d........ ..............vvvvvvvvvvvvvvvvvvv.vvvvvvv...................d....... ..............vvvvvvvvvvvvvvvvvvvv.vvvvvv....................d...... ..............vvvvvvvvvvvvvvvvvvvvv.vvvvv.....................d..... ..............vvvvvvvvvvvvvvvvvvvvvv.vvvv......................d.... ..............vvvvvvvvvvvvvvvvvvvvvvv.vvv.......................d... ..............vvvvvvvvvvvvvvvvvvvvvvvv.vv........................d.. ..............vvvvvvvvvvvvvvvvvvvvvvvvv.v.........................d. ..............vvvvvvvvvvvvvvvvvvvvvvvvvv...........................d u...uu..u..u..u...........................hhhhhhhhhhhhhhhhhhhhhhhhhh u..u.u...u..u..u.........................h.hhhhhhhhhhhhhhhhhhhhhhhhh u.u....uu....u..u........................hh.hhhhhhhhhhhhhhhhhhhhhhhh u...uu..u....u...u.......................hhh.hhhhhhhhhhhhhhhhhhhhhhh u..u.u..u....u....u......................hhhh.hhhhhhhhhhhhhhhhhhhhhh u.u..u....u.u......u.....................hhhhh.hhhhhhhhhhhhhhhhhhhhh u.u...u..u.u........u....................hhhhhh.hhhhhhhhhhhhhhhhhhhh u.u..u...u..u........u...................hhhhhhh.hhhhhhhhhhhhhhhhhhh u..u..u.u....u........u..................hhhhhhhh.hhhhhhhhhhhhhhhhhh u.u..u...u..u..........u.................hhhhhhhhh.hhhhhhhhhhhhhhhhh u.u..u....u.u...........u................hhhhhhhhhh.hhhhhhhhhhhhhhhh u.u...u.u....u...........u...............hhhhhhhhhhh.hhhhhhhhhhhhhhh u.u...u.u..u..............u..............hhhhhhhhhhhh.hhhhhhhhhhhhhh u.u....uu..u...............u.............hhhhhhhhhhhhh.hhhhhhhhhhhhh u..u.u..u..u................u............hhhhhhhhhhhhhh.hhhhhhhhhhhh .u.u...u.u.u.................u...........hhhhhhhhhhhhhhh.hhhhhhhhhhh .u.u.u..u....u................u..........hhhhhhhhhhhhhhhh.hhhhhhhhhh .u.u..u.u..u...................u.........hhhhhhhhhhhhhhhhh.hhhhhhhhh .u.u...u.u..u...................u........hhhhhhhhhhhhhhhhhh.hhhhhhhh .u.u...u.u...u...................u.......hhhhhhhhhhhhhhhhhhh.hhhhhhh .u..u.u..u...u....................u......hhhhhhhhhhhhhhhhhhhh.hhhhhh .uu...u.u...u......................u.....hhhhhhhhhhhhhhhhhhhhh.hhhhh .u..u.u..u..u.......................u....hhhhhhhhhhhhhhhhhhhhhh.hhhh .u.u..u...u.u........................u...hhhhhhhhhhhhhhhhhhhhhhh.hhh .u.u...u.u.u..........................u..hhhhhhhhhhhhhhhhhhhhhhhh.hh .u.u..u.u....u.........................u.hhhhhhhhhhhhhhhhhhhhhhhhh.h .u.u..u...uu............................uhhhhhhhhhhhhhhhhhhhhhhhhhh.";
+
+    for (let row = 0; row < nameCount; row++) {
+        weights[row] = [];
+        for (let col = 0; col < nameCount; col++) {
+            const a = wx[row * (nameCount + 1) + col];
             if (a === ".") {
-                weights[i][j] = 0.0;
+                weights[row][col] = 0.0;
             } else if ((a === "h") || (a === "v")) {
-                weights[i][j] = -1.0;
+                weights[row][col] = -1.0;
             } else if ((a === "d") || (a === "u")) {
-                weights[i][j] = 1.0;
+                weights[row][col] = 1.0;
             }
         }
     }
@@ -231,15 +232,13 @@ class Unit {
     display() {
         noStroke();
         if (this.extIn > 0) {
-            // stroke(255, 255, 255);
             fill(0, 255, 0, 255);
         } else if (this.extIn < 0) {
-            // stroke(255, 0, 0);
             fill(255, 0, 0, 255);
         } else {
             fill(0, 0, 0, 0);
-            // noStroke();
         }
+
         ellipse(this.px, this.py, this.rx + 2, this.ry + 2);
         if (this.delEx > 0) {
             fill(0, 255, 0, 100);
@@ -402,17 +401,6 @@ function mouseReleased() {
     }
 }
 
-
-function keyReleased() {
-    if (key === " ") {
-        if (isRunning === true) { isRunning = false; } else { isRunning = true; }
-    } else if (key === "r") {
-        initReset();
-    } else if (key === "s") {
-        if (slowmo === true) { slowmo = false; } else { slowmo = true; }
-    }
-}
-
 function initReset() {
     for (const unit of units) {
         unit.reset();
@@ -420,6 +408,16 @@ function initReset() {
     cycle = 0;
     click = false;
     slowmo = false;
+}
+
+function keyReleased() {
+    if (key === " ") {
+        isRunning = !isRunning;
+    } else if (key === "r") {
+        initReset();
+    } else if (key === "s") {
+        slowmo = !slowmo;
+    }
 }
 
 function resetOriginalValues() {
