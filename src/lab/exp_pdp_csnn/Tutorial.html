@@ -120,7 +120,8 @@ them need not be satisfied fully as in the normal constrained
 optimization problems. The degree of satisfaction is evaluated using
 a <i>goodness-of-fit</i> function, defined in terms of the output values of
 the units as well as the weights on the connections between units.
-
+<br>
+        The model we have is already trained and has weights assigned to it. It is these weights that aid in making the original hinton diagram. We can further train the network by providing our input on which descriptor best fits whch room and update the weights accordingly. These new weights are what aid in the making of the new Hinton Diagram.<br><br> The clamping of descriptors is like an external input given to the netowrk. When we do so and test the network, after a few cycles, we see the descriptors belonging to the room type of the descriptor that was clamped to be lit up whereas others are not.<br> 
 </p>
 <h3>Example of capturing the concept of the type of room from descriptors</h3>
 <p>
@@ -213,6 +214,15 @@ The model not only captures the concepts of the room types, but
 it also gives an idea of their relative separation in the 40 dimensional
 space.
 
+  </p>
+    <h3>FORMULAE USED</h3>
+    <p>
+        if descriptor is clamped, it is given activation 1, otherwise 0.<br>
+        nextState[i] of a descriptor is the sum of the products of activation[j] with weights[i][j]<br>
+        if nextState[i] is greater than the threshold, it is given value 1, otherwise 0.<br>
+        if nextState[i] is 1, activation is set to 1 irrespective of it's initial value.<br>
+        activation of each descriptor is calculated for 16 cycles one after another and displayed.<br><br><br>
+        For further information, refer the references given in the references section for this experiment.
 </p>
 <!--Figure HERE -->
 <table width="750"><tr><td height="650">
