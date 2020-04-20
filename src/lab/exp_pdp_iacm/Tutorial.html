@@ -106,6 +106,7 @@ This model is illustrated by the help of Jets and Sharks database described in [
 </p>
 <iframe height="700" src="tableTEMP.html" width="600"></iframe>
 <p>
+    An interactive activation and competition network consists of a collection of processing units organized into some number of competitive pools. There are excitatory connections among units in different pools and inhibitory connections among units within the same pool. The excitatory connections between pools are generally bidirectional, thereby making the processing interactive in the sense that processing in each pool both influences and is influenced by processing in other pools. Within a pool, the inhibitory connections are usually assumed to run from each unit in the pool to every other unit in the pool. This implements a kind of competition among the units such that the unit or units in the pool that receive the strongest activation tend to drive down the activation of the other units. 
 The information about such a data, if stored in a computer memory, can be accessed by name or by any other set of items which can serve as a key to a particular set of information.
 But this requires the method of access to be pre-programmed in the system. Moreover, certain characteristics of the data like the distribution of persons in different age groups or the 
 'common' characteristics among some persons, etc, can be obtained only by programming explicitly to derive the information embedded in the data. In other words, any information 
@@ -191,6 +192,25 @@ realized in hardware, and also when it is allowed to relax naturally
 changing from one state to another until an equilibrium state is
 reached from the given initial state and external input. 
 Spontaneous generalization is the ability to provide a generalized picture of what is common to the memories that match the cues which are too vague to match a particular memory.
+
+If weights between i'th and j'th components is +ve,<br>
+q = weight * activation<br>
+excitation += q for all units.<br><br> 
+
+if weights between i'th and j'th components is -ve,<br>
+q = weight * activation<br>
+inhibition += q for all units.<br><br>
+
+net input = (estr * external input) + (beta * excitation) + (gamma * inhibition)
+<br>
+delta excitation = (actmax - activation) * net input - decay * (activation - actrest)<br>
+activation += delta excitation<br>
+g Delta = g Delta + absolute(delta excitation)<br><br>
+
+delta inhibition = (activation - actmin) * net input - decay * (activation - actrest);<br>
+activation += delta inhibition;<br>
+g Delta = g Delta + absolute(delta inhibiton);<br><br>
+  For more information and help regarding IAC, click <a href="https://web.stanford.edu/group/pdplab/pdphandbook/handbookch3.html">here</a>  
 </p>
 </div>						</div>
 					</div>
