@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>MLFNN</title>
+    <link rel="stylesheet" type="text/css" href="exp.css">
+  </head>
+  <body>
+    <link       rel="stylesheet"       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"       crossorigin="anonymous"       /><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"        crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"        crossorigin="anonymous"></script>
+    <div class="container-fluid p-4">
+      <div class="row no-gutters">
+        <div class="col">
+          <div class="row no-gutters">
+            <ol>
+              <li>This is a 3 layer MLFFNN with one hidden layer, one input layer, and one output layer.</li>
+              <li>Select the problem type and the number of nodes in the hidden layer, and click in train MLFFNN.</li>
+              <li>Now click on test MLFFNN.</li>
+            </ol>
+            <img width="500" src="structure.png" alt="Structure of MLFNN">
+          </div>
+          <div class="row no-gutters">
+            <form name="myform" method="post">
+              <div class="form-group">
+                <label>
+                  Problem type
+                  <select class="custom-select" id="numberOfBits" name="numberOfBits">
+                  </select>
+                </label>
+
+                <label>
+                  Number of nodes in hidden layer
+                  <select class="custom-select" name="numberOfhiddenNodes" id="numberOfhiddenNodes">
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-primary" type="submit" name="trainMLFFNN" value="Train MLFFNN" onclick="setType('train');">Train MLFFNN</button>
+                <button class="btn btn-primary" type="submit" name="testMLFFNN" value="Test MLFFNN" onclick="setType('test');">Test MLFFNN</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="image-container"></div>
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+<script src="../js/utils.js"></script>
+    <script src="exp.js"></script>
+  </body>
+</html>

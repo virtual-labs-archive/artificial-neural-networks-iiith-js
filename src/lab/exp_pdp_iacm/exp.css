@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+}
+
+#heading {
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    overflow-x:auto;
+}
+
