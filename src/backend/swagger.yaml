@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: vlabs ANN API
+  description: The API for Artificial Neural Networks lab
+  version: 1.0.0
+paths:
+  /get_token:
+    get:
+      summary: Returns a token which is used to used to uniquely identify users
+      responses:
+        "200":
+          description: The token to return
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: 076d27ee-1ce7-4726-8458-b014b2428150
+  "/exp{num}":
+    post:
+      summary: Performs the tasks related to that experiment and returns generated
+        images
+      parameters:
+        - in: path
+          name: num
+          required: true
+          description: The experiment number [one of {3, 4, 7, 8}]
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: The results (images/tables) for that experiment
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  images:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: string
+        "403":
+          description: Token missing
+        "404":
+          description: This experiment number is not supported by this API
+        "500":
+          description: Octave threw an error
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Octave didn't work
+                  error:
+                    type: string
+                    example: error on line 13
+  "/exp{num}-{part}":
+    post:
+      summary: Performs the tasks related to that experiment, part and returns
+        generated images
+      parameters:
+        - in: path
+          name: num
+          required: true
+          description: The experiment number
+          schema:
+            type: integer
+            minimum: 9
+            maximum: 10
+        - in: path
+          name: part
+          required: true
+          description: The part of that experiment
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: The results (images/tables) for that experiment
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  images:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: string
+        "403":
+          description: Token missing
+        "404":
+          description: This experiment number/part combination is not supported by this API
+        "500":
+          description: Octave threw an error
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Octave didn't work
+                  error:
+                    type: string
+                    example: error on line 13
+servers:
+  - url: http://localhost:4647/
