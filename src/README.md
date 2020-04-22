@@ -2,11 +2,13 @@
 
 ## Build instructions
 
+**Important**: you need to have Python3.6+ and Octave installed on your system. We have tested the following setup to work on Ubuntu 18.04 and Arch Linux.
+
 1. `git clone https://github.com/virtual-labs/artificial-neural-networks-iiith-js`
-2. `cd src`
-3. `make`
-4. Your frontend and backend should now be running.
-5. Now you can visit `http://localhost:4646` and enjoy our webapp!
+2. `cd src && make` (`make clean` first if your build folder exists)
+3. `cd ../build && python3 -m http.server` - this will create a localhost of all files in `build`. Frontend is now ready at `0.0.0.0:8000`
+4. Setup the server by doing `cd ../src/backend && python3 server.py` (in a new terminal session). Backend is now ready at `0.0.0.0:4647`
+5. Now you can visit `0.0.0.0:8000` and enjoy our webapp!
 
 ## Architecture
 
