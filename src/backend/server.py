@@ -132,7 +132,8 @@ def exp_part(num, part):
         data["token"] = uid
         res = runner.runexp(data, part)
         return res
-    except Exception:
+    except Exception as e:
+        print(e)
         return "Invalid data for given experiment", 400
 
 

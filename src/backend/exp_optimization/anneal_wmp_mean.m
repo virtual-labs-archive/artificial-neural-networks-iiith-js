@@ -1,4 +1,4 @@
-function FinalState = anneal_wmp_mean(points,InitState)
+function FinalState = anneal_wmp_mean(points,InitState, filename)
 
 %%%%%%%%%
 % Ex1: points=[1 1;3 3;0 4;2 6];
@@ -7,13 +7,13 @@ function FinalState = anneal_wmp_mean(points,InitState)
 % validinitstates=[5 6 7 9 10 11 13 14 15 21 25 29 37 41 45];
 %%%%%%%%%
 
-fid=fopen('result.txt','w');
+fid=fopen(strcat(filename, '-result.txt'),'w');
 
 %points=[1 1;3 3;0 4;2 6];
 N=length(points);
 M=nchoosek(N,2);
 
-if(~exist('InitState'))
+if(strcmp(InitState, "") == 1)
 	InitState=rand(M,1);
 end
 

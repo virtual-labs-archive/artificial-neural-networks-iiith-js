@@ -47,6 +47,7 @@ def weighted_matching(data):
     arg = data.get("nodeloc")
 
     if data.get("annealflag") == "1":
+        arg += ", \"\""
         return start_annealing("anneal_wmp_mean", arg, data.get("token"))
 
     if data.get("initflag") == "1":
