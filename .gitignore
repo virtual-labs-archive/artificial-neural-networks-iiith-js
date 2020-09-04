@@ -1,0 +1,5 @@
+*.*~
+build/
+__pycache__
+src/backend/exp_*/*.png
+src/backend/exp_*/*.dat

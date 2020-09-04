@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Weighted matching</title>
+    <link rel="stylesheet" type="text/css" href="exp.css">
+  </head>
+  <body>
+    <link       rel="stylesheet"       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"       crossorigin="anonymous"       /><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"        crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"        crossorigin="anonymous"></script>
+    <div class="container-fluid p-4">
+      <div class="row">
+        <div class="col-6">
+          <form name="myform">
+            <label>Select a graph:
+              <select class="custom-select" name=graph onchange="jschangegraph();">
+                <option value="4" selected=selected>Graph-1: 4 nodes</option>
+                <option value="5">Graph-2: 5 nodes</option>
+                <option value="6">Graph-3: 6 nodes</option>
+                <option value="7">Graph-4: 7 nodes</option>
+                <option value="new">Create new graph</option>
+              </select>
+            </label>
+
+            <label>No. of nodes: <input class="form-control" type=text name=Nnodes readonly> </label>
+            <label>Node locations: <input class="form-control" type=text size=80 name=nodeloc readonly> </label>
+
+            <input type=submit value="Init" class="btn btn-primary" onclick="jsinit();">
+            <input type=submit value="Reset" class="btn btn-primary" onclick='jsreset();'>
+            <input type=submit name=Anneal value=Anneal class="btn btn-primary" onclick='jsanneal();'><br><br>
+            The cost function to be minimized is:
+            $$ L[n] = \sum_{i\lt j}{d_{ij}n_{ij}} + \frac{\gamma}{2}\sum_{i}{(1-\sum_{j}{n_{ij}})^2} $$
+            where \( d_{ij} \) is the distance between points \( i \) and \( j \), and \( n_{ij} \) denotes the link or
+            edge
+            between points \( i \) and \( j \).
+            $$ \Delta L[n] = ( d_{ij} - \gamma + \gamma \sum_{k\ne j}{n_{ik}+\gamma\sum_{k\ne i}{n_{jk}}})\Delta n_{ij}
+            $$
+
+            Input nodes<br>
+            Weighted matched pairs<br>
+
+            <input type="hidden" name="initflag">
+            <input type="hidden" name="annealflag">
+          </form>
+        </div>
+        <div class="col-6">
+          <div class="image-container"></div>
+
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+
+<script src="../js/utils.js"></script>
+    <script>
+      window.EXP_NAME = "weighted_matching-det";
+    </script>
+    <script src="exp.js"></script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+  </body>
+</html>

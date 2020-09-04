@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>Experiment 9 - BP</title>
+    <link rel="stylesheet" type="text/css" href="exp9.css">
+</head>
+<body>
+<link       rel="stylesheet"       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"       crossorigin="anonymous"       /><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"        crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"        crossorigin="anonymous"></script>
+
+<div class="container-fluid p-4">
+    <div class="row no-gutters">
+        <div class="col-6">
+
+            <h3> Graph bipartition problem</h3>
+            <form name="myform" method="post">
+                <label>
+                    Select a graph:
+                    <select name=graph onchange="jschangegraph();">
+                        <option value="g4" selected>Sample graph
+                            1: 4
+                            nodes
+                        </option>
+                        <option value="g6">Sample graph
+                            2: 6
+                            nodes
+                        </option>
+                        <option value="g12">Sample graph
+                            5:
+                            12 nodes
+                        </option>
+                        <option value="g14">Sample graph
+                            6:
+                            14 nodes
+                        </option>
+                        <option value="g16">Sample graph
+                            7:
+                            16 nodes
+                        </option>
+                        <option value="new">Create your
+                            own
+                            graph
+                        </option>
+                    </select>
+                </label>
+                <label>No of nodes: <input type=text name=Nnodes readonly> </label>
+                <label>No. of edges: <input type=text name=Nedges readonly> </label>
+                <label>Edges: <input type=text size=80 name=edgestring readonly> </label>
+                <label>Alpha: <input type=text name=alpha> </label>
+                <label>DeltaT: <input type=text name=deltaT> </label>
+
+                <button class="btn btn-primary" type=submit onclick="jsinit();">Init</button>
+                <button class="btn btn-primary" type=submit onclick='jsreset();'>Reset</button>
+                <button class="btn btn-primary" type=submit onclick='jsanneal();'>Anneal</button>
+                Input graph
+                Bipartitioned graph
+
+                <input type="hidden" name="initflag" value=0>
+                <input type="hidden" name="annealflag" value=0>
+            </form>
+        </div>
+        <div class="col-6">
+            <div class="image-container"></div>
+            <div id="result"></div>
+        </div>
+    </div>
+</div>
+<script src="../js/utils.js"></script>
+<script src="exp9-bp.js"></script>
+</body>
+
+</html>

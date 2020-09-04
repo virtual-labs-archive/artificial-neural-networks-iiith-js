@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PDP IACM</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+      />
+    <link rel="stylesheet" type="text/css" href="exp.css" />
+  </head>
+
+  <body>
+    <link       rel="stylesheet"       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"       crossorigin="anonymous"       /><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"        crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"        crossorigin="anonymous"></script>
+    <div id="flex-container" class="h-100" style="overflow-x:auto;">
+      <div style="flex-direction: column" class="d-flex justify-content-between h-100">
+        <table id="values" border="4" bordercolor="#646464">
+          <thead>
+            <th>Variable</th>
+            <th>Value</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Estr</td>
+              <td>
+                <input type="text" autocomplete="off" id="estr_inp" value="0.4" class="form-control" />
+              </td>
+            </tr>
+            <tr>
+              <td>Actmax</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  id="actmax_inp"
+                  value="1.0"
+                  class="form-control"
+                  />
+              </td>
+            </tr>
+            <tr>
+              <td>Actmin</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  id="actmin_inp"
+                  value="-1.0"
+                  class="form-control"
+                  />
+              </td>
+            </tr>
+            <tr>
+              <td>Actrest</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  id="actrest_inp"
+                  value="-0.1"
+                  class="form-control"
+                  />
+              </td>
+            </tr>
+            <tr>
+              <td>Decay</td>
+              <td>
+                <input type="text" autocomplete="off" id="decay_inp" value="0.1" class="form-control" />
+              </td>
+            </tr>
+            <tr>
+              <td>Beta</td>
+              <td>
+                <input type="text" autocomplete="off" id="beta_inp" value="0.1" class="form-control" />
+              </td>
+            </tr>
+            <tr>
+              <td>Gamma</td>
+              <td>
+                <input type="text" autocomplete="off" id="gamma_inp" value="0.1" class="form-control" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mt-5">
+          <button
+            style="background-color:green;"
+            class="m-2 btn btn-primary"
+            onclick="document.location.reload(true)"
+            >
+            Reset original values and restart
+          </button>
+            <button style="background-color:green;" class="m-2 btn btn-primary" onclick="setNewValues()">
+              Set values and restart
+            </button>
+            <!--
+            <button
+              style="background-color:green;"
+              class="m-2 btn btn-primary"
+              onclick='window.open("help.html","_blank")'
+              >
+              Help
+            </button>
+            -->
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <br /><br />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="../js/utils.js"></script>
+    <script src="exp.js"></script>
+  </body>
+</html>
